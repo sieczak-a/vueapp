@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    imagename = "devopstestaccount/gui"
-    registryCredential = 'devopstestaccount-id'
+    imagename = "truegunner/gui"
+    registryCredential = 'dockerhub-id'
     dockerImage = ''
   }
 
@@ -37,13 +37,6 @@ pipeline {
              dockerImage.push('latest')
           }
         }
-      }
-    }
-
-    stage('Clean') {
-      steps{
-        sh "docker rmi $imagename:$BUILD_NUMBER"
-         sh "docker rmi $imagename:latest"
       }
     }
 
